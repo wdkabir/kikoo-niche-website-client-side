@@ -3,7 +3,7 @@
 // const useReview = () => {
 //     const [review, setReview] = useState();
 //     useEffect(() => {
-//         fetch('http://localhost:5000/review')
+//         fetch('https://rocky-fjord-15900.herokuapp.com/review')
 //             .then(res => res.json())
 //             .then(data => setReview(data))
 //     }, [])

@@ -11,14 +11,14 @@ const ManageAllProduct = () => {
     const [manageAllProducts, setManageAllProducts] = useState([]);
     console.log(manageAllProducts);
     useEffect(()=>{
-        fetch("http://localhost:5000/manageallproducts")
+        fetch("https://rocky-fjord-15900.herokuapp.com/manageallproducts")
         .then((res)=> res.json())
         .then((data) => setManageAllProducts(data));
     }, [manageAllProducts]);
     const handleProductDelete = (id) => {
         const proced = window.confirm('Are you Sure, Delete Your Data?');
         if (proced) {
-            const url = `http://localhost:5000/deleteproduct/${id}`;
+            const url = `https://rocky-fjord-15900.herokuapp.com/deleteproduct/${id}`;
 
             fetch(url, {
                 method: 'DELETE'

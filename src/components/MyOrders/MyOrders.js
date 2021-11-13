@@ -10,14 +10,14 @@ const MyOrders = () => {
     const history = useHistory();
     const [myOrders, setMyOrders] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/myorders/${user?.email}`)
+        fetch(`https://rocky-fjord-15900.herokuapp.com/myorders/${user?.email}`)
         .then((res)=> res.json())
         .then((data) => setMyOrders(data));
     }, [user?.email]);
     const handleOrderDelete = (id) => {
         const proced = window.confirm('Are you Sure, Delete Your Data?');
         if (proced) {
-            const url = `http://localhost:5000/orderdelete/${id}`;
+            const url = `https://rocky-fjord-15900.herokuapp.com/orderdelete/${id}`;
 
             fetch(url, {
                 method: 'DELETE'

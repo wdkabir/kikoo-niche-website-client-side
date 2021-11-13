@@ -13,7 +13,7 @@ const PlaceOrder = () => {
     const history = useHistory();
     const [orderplace, setOrderplace] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/allorder/${id}`)
+        fetch(`https://rocky-fjord-15900.herokuapp.com/allorder/${id}`)
         .then(res => res.json())
         .then(data =>{
             setOrderplace(data)
@@ -24,7 +24,7 @@ const PlaceOrder = () => {
     data.status = 'pending';
     data.email = user?.email;
     data.orderplace = orderplace;
-    fetch('http://localhost:5000/placeorder', {
+    fetch('https://rocky-fjord-15900.herokuapp.com/placeorder', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -41,7 +41,7 @@ const PlaceOrder = () => {
         <Header></Header>
         <Container>
             <Row>
-                <div className="col-md-6"></div>
+                <div className="col-md-3"></div>
                 <div className="col-md-6 my-5 px-5 py-5 placeorder-form">
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Row className="mb-3">
@@ -73,6 +73,7 @@ const PlaceOrder = () => {
                         </Button>
                     </Form>
                 </div>
+                <div className="col-md-3"></div>
             </Row>
         </Container>
         <Footer></Footer>
