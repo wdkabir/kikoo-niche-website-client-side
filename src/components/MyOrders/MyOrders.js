@@ -30,7 +30,7 @@ const MyOrders = () => {
                         )
 
                     }
-                    history.push('/dashboard/myorders');
+                    history.push('/dashboard');
                 });
         }
     }
