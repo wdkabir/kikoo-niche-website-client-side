@@ -14,6 +14,7 @@ const UseFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
+    const [admin, setAdmin] = useState(false);
     
     const handleNameChange = e => {
         setName(e.target.value);
@@ -60,7 +61,12 @@ const UseFirebase = () => {
                 )
             });
     }
-    
+    // check admin 
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user?.email])
     // google sign in
     function signinGoogle() {
         setIsLoading(true);
@@ -99,6 +105,7 @@ const UseFirebase = () => {
         logOut,
         signinGoogle,
         user,
+        admin,
         error,
         setUser,
         saveUser,

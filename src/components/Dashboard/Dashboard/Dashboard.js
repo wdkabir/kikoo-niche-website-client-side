@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAlt, faShoppingCart, faTasks, faHome, faCartPlus, faSignOutAlt, faUserCog, faTools } from '@fortawesome/free-solid-svg-icons';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, useRouteMatch } from "react-router-dom";
-import About from '../../About/About';
 import Profile from '../Profile/Profile';
 import MyOrders from '../../MyOrders/MyOrders';
 import ManageOrders from '../../ManageOrders/ManageOrders';
@@ -14,6 +13,9 @@ import ManageAllProduct from '../../ManageAllProduct/ManageAllProduct';
 import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import MakeAdmin from '../../MakeAdmin/MakeAdmin';
+import AdminRoute from '../AdminRoute/AdminRoute';
+import PayBill from '../PayBill/PayBill';
+// import Review from '../Review/Review';
 
 const Dashboard = () => {
     const profileIcon = <FontAwesomeIcon icon={faUserAlt} />
@@ -25,7 +27,7 @@ const Dashboard = () => {
     const makeAdminIcon = <FontAwesomeIcon icon={faUserCog} />
     const manageAllProductsIcon = <FontAwesomeIcon icon={faTools} />
     let { path, url } = useRouteMatch();
-    const { logOut, setUser, setIsLoading } = useAuth();
+    const { logOut, setUser, setIsLoading, admin } = useAuth();
     const history = useHistory();
     const location = useLocation();
     const redirect = location?.state?.from || "/";
@@ -77,24 +79,40 @@ const Dashboard = () => {
                                         <Nav.Link as={NavLink} to={`${url}`} activeStyle={
                                             activeMenu
                                         } className="fs-6 fw-bold py-3">{profileIcon} Profile</Nav.Link>
-                                        <Nav.Link as={NavLink} to={`${url}/makeadmin`} activeStyle={
+                                        
+                                        {
+                                            !admin && (
+                                                <>
+                                                <Nav.Link as={NavLink} to={`${url}/myorders`} activeStyle={
+                                                    activeMenu
+                                                } className="fs-6 fw-bold py-3">{myOrdersIcon} My Orders</Nav.Link>
+                                                <Nav.Link as={NavLink} to={`${url}/paybill`} activeStyle={
+                                                    activeMenu
+                                                } className="fs-6 fw-bold py-3">{myOrdersIcon} Pay Bill</Nav.Link>
+                                                {/* <Nav.Link as={NavLink} to={`${url}/reviews`} activeStyle={
+                                                    activeMenu
+                                                } className="fs-6 fw-bold py-3">{myOrdersIcon} Reviews</Nav.Link> */}
+                                                </>
+                                            )
+                                        }
+                                        {
+                                            admin && (
+                                               <>
+                                               <Nav.Link as={NavLink} to={`${url}/makeadmin`} activeStyle={
                                             activeMenu
                                         } className="fs-6 fw-bold py-3">{makeAdminIcon} Make Admin</Nav.Link>
-                                        {/* <Nav.Link as={NavLink} to={`${url}/profile`} activeStyle={
-                                            activeMenu
-                                        } className="fs-6 fw-bold py-3">{profileIcon} Profile</Nav.Link> */}
-                                        <Nav.Link as={NavLink} to={`${url}/myorders`} activeStyle={
-                                            activeMenu
-                                        } className="fs-6 fw-bold py-3">{myOrdersIcon} My Orders</Nav.Link>
-                                        <Nav.Link as={NavLink} to={`${url}/manageorders`} activeStyle={
-                                            activeMenu
-                                        } className="fs-6 fw-bold py-3">{manageOrdersIcon} Manage Orders</Nav.Link>
-                                        <Nav.Link as={NavLink} to={`${url}/addproducts`} activeStyle={
-                                            activeMenu
-                                        } className="fs-6 fw-bold py-3">{addProductsIcon} Add Products</Nav.Link>
-                                        <Nav.Link as={NavLink} to={`${url}/manageallproduct`} activeStyle={
-                                            activeMenu
-                                        } className="fs-6 fw-bold py-3">{manageAllProductsIcon} Manage All Products</Nav.Link>
+                                                <Nav.Link as={NavLink} to={`${url}/manageorders`} activeStyle={
+                                                    activeMenu
+                                                } className="fs-6 fw-bold py-3">{manageOrdersIcon} Manage Orders</Nav.Link>
+                                                <Nav.Link as={NavLink} to={`${url}/addproducts`} activeStyle={
+                                                    activeMenu
+                                                } className="fs-6 fw-bold py-3">{addProductsIcon} Add Products</Nav.Link>
+                                                <Nav.Link as={NavLink} to={`${url}/manageallproduct`} activeStyle={
+                                                    activeMenu
+                                                } className="fs-6 fw-bold py-3">{manageAllProductsIcon} Manage All Products</Nav.Link>
+                                               </>
+                                            )
+                                        }
                                         <Nav.Link as={NavLink} to="/" activeStyle={
                                             activeMenu
                                         } className="fs-6 fw-bold py-3">{backToHomeIcon} Back To Home</Nav.Link>
@@ -111,24 +129,27 @@ const Dashboard = () => {
                             <Route exact path={path}>
                                     <Profile></Profile>
                             </Route>
-                            {/* <Route path={`${path}/profile`}>
-                                   <Profile></Profile>   
-                            </Route> */}
                             <Route path={`${path}/myorders`}>
                                    <MyOrders></MyOrders>  
                             </Route>
-                            <Route path={`${path}/manageorders`}>
+                            <Route path={`${path}/paybill`}>
+                                   <PayBill></PayBill> 
+                            </Route>
+                            {/* <Route path={`${path}/reviews`}>
+                                   <Review></Review>
+                            </Route> */}
+                            <AdminRoute path={`${path}/manageorders`}>
                                    <ManageOrders></ManageOrders> 
-                            </Route>
-                            <Route path={`${path}/addproducts`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/addproducts`}>
                                    <AddProducts></AddProducts>
-                            </Route>
-                            <Route path={`${path}/manageallproduct`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/manageallproduct`}>
                                    <ManageAllProduct></ManageAllProduct>
-                            </Route>
-                            <Route path={`${path}/makeadmin`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/makeadmin`}>
                                    <MakeAdmin></MakeAdmin>
-                            </Route>
+                            </AdminRoute>
                         </Switch>
                     </div>
                 </div>

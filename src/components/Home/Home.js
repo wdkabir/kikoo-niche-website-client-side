@@ -7,11 +7,13 @@ import BikeService from '../Home/BikeService/BikeService';
 import Mission from '../Home/Mission/Mission';
 import './Home.css';
 import Header from '../Shared/Header/Header';
-import Products from '../Bikes/Products/Products';
 import History from './History/History';
 import Footer from '../Shared/Footer/Footer';
+import Product from '../Bikes/Product/Product';
+import useProducts from '../../Hooks/useProducts';
 
 const Home = () => {
+    const [products] = useProducts();
     const mapIcon = <FontAwesomeIcon icon={faMapMarkerAlt} />
     const packageButtonIcon = <FontAwesomeIcon icon={faArrowRight} />
     return (
@@ -56,10 +58,22 @@ const Home = () => {
         </section>
         <Mission></Mission>
         <History></History>
-        <div className="container">
-            <h1 className="text-center py-3">Our Popular Bikes</h1>
-            <Products></Products>
-        </div>
+        {/* Services Part 4 data showing */}
+        <section>
+            <div className="container text-center py-5">
+                <h1>Ours Popular Bikes</h1>
+            </div>
+            <div className="container">
+            <Row xs={1} md={3} className="g-4">
+                    {
+                        products.slice(0,6).map(addproduct => <Product allproduct={addproduct}></Product> )
+                    }
+                </Row>
+            </div>
+            <div className="container text-center py-5">
+            <Link to="/bikes"><Button className="bikes-button">View All Bikes {packageButtonIcon}</Button></Link>
+            </div>
+        </section>
         <BikeService></BikeService>
         <Footer></Footer>
         

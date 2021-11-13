@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Container, Image, Row, Table } from 'react-bootstrap';
+import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import useAuth from '../../Hooks/useAuth';
+// import useAuth from '../../Hooks/useAuth';
 
 const MakeAdmin = () => {
     const handleUpdate = (id) => {
@@ -24,7 +24,7 @@ const MakeAdmin = () => {
                 }
             })
     }
-    const {user} = useAuth();
+    // const {user} = useAuth();
     const [manageOrder, setManageOrder] = useState([]);
     useEffect(() =>{
         fetch('http://localhost:5000/users')
@@ -42,11 +42,11 @@ const MakeAdmin = () => {
                             <Table striped bordered hover responsive className="mx-0 my-0">
                                 <thead>
                                     <tr>
-                                    <th>Image</th>
+                                    {/* <th>Image</th> */}
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Order Status</th>
-                                    <th>Cancel Order</th>
+                                    <th>User Role</th>
+                                    <th>Make Admin</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,7 +54,7 @@ const MakeAdmin = () => {
                                 manageOrder.map(myorder => {
                                     return(
                                     <tr key={myorder._id}>
-                                    <td><Image style= {{height: '50px', width: '80px'}} src={user?.photoURL} fluid /></td>
+                                    {/* <td><Image style= {{height: '50px', width: '80px'}} src={user?.photoURL} fluid /></td> */}
                                     <td>{myorder?.displayName}</td>
                                     <td>{myorder?.email}</td>
                                     <td>{myorder?.role === 'admin' ? (<h6 className="text-success fw-bolder">
@@ -62,7 +62,7 @@ const MakeAdmin = () => {
                                         </h6>) : (<h6 className="text-danger fw-bolder">
                                             {myorder?.role}{"basic"}
                                         </h6>)}</td>
-                                    <td><Button onClick={()=>handleUpdate(myorder._id)} variant="outline-danger">Approve</Button></td>
+                                    <td><Button onClick={()=>handleUpdate(myorder._id)} variant="outline-info">Make Admin</Button></td>
                                     </tr>
                                     )
                                     })

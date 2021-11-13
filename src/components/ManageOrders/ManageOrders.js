@@ -14,26 +14,26 @@ const ManageOrders = () => {
         .then((res) => res.json())
         .then((data) => setManageOrder(data));
     });
-    const handleDelete = (id) => {
-        const proced = window.confirm('Are you Sure, Delete Your Data?');
-        if (proced) {
-            const url = `http://localhost:5000/allorderdelete/${id}`;
+    // const handleDelete = (id) => {
+    //     const proced = window.confirm('Are you Sure, Delete Your Data?');
+    //     if (proced) {
+    //         const url = `http://localhost:5000/allorderdelete/${id}`;
 
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        Swal.fire(
-                            "Data Delete SuccessFull!",
-                            "success"
-                        )
+    //         fetch(url, {
+    //             method: 'DELETE'
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 if (data.deletedCount > 0) {
+    //                     Swal.fire(
+    //                         "Data Delete SuccessFull!",
+    //                         "success"
+    //                     )
 
-                    }
-                })
-        }
-    }
+    //                 }
+    //             })
+    //     }
+    // }
 
     const handleUpdate = (id) => {
         const url = `http://localhost:5000/placeorder/${id}`;
