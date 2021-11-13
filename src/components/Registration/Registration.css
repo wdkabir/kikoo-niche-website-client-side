@@ -1,0 +1,11 @@
+.registration{
+    padding: 50px 20px;
+    box-shadow: 0px 0px 10px rgb(236, 224, 224);
+    border-radius: 10px;
+}
+.registration-header{
+    background-image: url('https://i.ibb.co/xmBCmsw/pexels-clem-onojeghuo-173294.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}

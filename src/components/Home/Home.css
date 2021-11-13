@@ -1,0 +1,44 @@
+.bannar{
+    background-image: url('https://i.ibb.co/Zg12GF5/pexels-pixabay-289869.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 650px;
+}
+.banner-bikes{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.banner-bikes-text{
+    color: white;
+    font-size: 60px;
+    font-weight: 800;
+    text-shadow: 0px 0px 5px black;
+}
+.bikes-button{
+    background-color: tomato;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 90px;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+.bikes-button:hover{
+    background-color: coral;
+}
+.header-subscribe{
+    margin-top: -80px;
+}
+
+.header-map{
+    background-image: url('https://i.ibb.co/6WJ3ZzP/map-new-bg-copyright.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header-subscribe-form{
+    background-color: coral;
+}

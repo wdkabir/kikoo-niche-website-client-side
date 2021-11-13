@@ -1,0 +1,19 @@
+.contact-form{
+    padding: 50px 20px;
+    box-shadow: 0px 0px 10px rgb(236, 224, 224);
+    border-radius: 10px;
+    background-color: #fffffffa;
+}
+
+.contact-header{
+    background-image: url('https://i.ibb.co/xmBCmsw/pexels-clem-onojeghuo-173294.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+.contact{
+    background-image: url('https://i.ibb.co/v4QhFKd/pexels-chept-cormani-1416530.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}

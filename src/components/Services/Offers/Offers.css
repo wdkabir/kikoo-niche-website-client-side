@@ -1,0 +1,9 @@
+.offers-card-img{
+    width: 200px;
+    height: 200px;
+}
+.offer-card{
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgb(236, 231, 231);
+}

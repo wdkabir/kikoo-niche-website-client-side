@@ -1,0 +1,15 @@
+.bikes{
+    background-image: url('https://i.ibb.co/xmBCmsw/pexels-clem-onojeghuo-173294.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+/* .bikes-header{
+    position: absolute;
+    top: 26%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+.bikes-header-text{
+    color: tomato;
+}
