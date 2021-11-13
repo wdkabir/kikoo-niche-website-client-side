@@ -35,6 +35,7 @@ const UseFirebase = () => {
     }
 
     const registerNewUser = () => {
+        saveUser(email, name, 'PUT')
         return createUserWithEmailAndPassword(auth, email, password);
 
     }
@@ -77,6 +78,17 @@ const UseFirebase = () => {
         });
         return () => unsubscribe;
     }, []);
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName }
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
 
     // sign out
     function logOut() {
@@ -89,6 +101,7 @@ const UseFirebase = () => {
         user,
         error,
         setUser,
+        saveUser,
         isLoading,
         registerNewUser,
         processLogin,

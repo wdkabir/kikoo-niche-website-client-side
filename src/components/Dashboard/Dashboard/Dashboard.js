@@ -65,7 +65,7 @@ const Dashboard = () => {
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="flex-column mx-auto">
-                                    <Nav.Link as={NavLink} to="/dashboard" className="py-3 text-center">
+                                    <Nav.Link as={NavLink} to="/dashboard" className="py-5 text-center">
                                     <img
                                         src="https://i.ibb.co/9VvhWhX/kikoo-website-logo.png"
                                         width="200"
@@ -74,15 +74,15 @@ const Dashboard = () => {
                                         alt="kikoo-logo"
                                     />
                                     </Nav.Link>
-                                        {/* <Nav.Link as={NavLink} to={`${url}`} activeStyle={
+                                        <Nav.Link as={NavLink} to={`${url}`} activeStyle={
                                             activeMenu
-                                        } className="fs-6 fw-bold py-3">{dashboardIcon} Dashboard</Nav.Link> */}
+                                        } className="fs-6 fw-bold py-3">{profileIcon} Profile</Nav.Link>
                                         <Nav.Link as={NavLink} to={`${url}/makeadmin`} activeStyle={
                                             activeMenu
                                         } className="fs-6 fw-bold py-3">{makeAdminIcon} Make Admin</Nav.Link>
-                                        <Nav.Link as={NavLink} to={`${url}/profile`} activeStyle={
+                                        {/* <Nav.Link as={NavLink} to={`${url}/profile`} activeStyle={
                                             activeMenu
-                                        } className="fs-6 fw-bold py-3">{profileIcon} Profile</Nav.Link>
+                                        } className="fs-6 fw-bold py-3">{profileIcon} Profile</Nav.Link> */}
                                         <Nav.Link as={NavLink} to={`${url}/myorders`} activeStyle={
                                             activeMenu
                                         } className="fs-6 fw-bold py-3">{myOrdersIcon} My Orders</Nav.Link>
@@ -109,11 +109,11 @@ const Dashboard = () => {
                     <div className="col-md-9 py-0 px-0">
                         <Switch>
                             <Route exact path={path}>
-                                    <About></About>
+                                    <Profile></Profile>
                             </Route>
-                            <Route path={`${path}/profile`}>
+                            {/* <Route path={`${path}/profile`}>
                                    <Profile></Profile>   
-                            </Route>
+                            </Route> */}
                             <Route path={`${path}/myorders`}>
                                    <MyOrders></MyOrders>  
                             </Route>

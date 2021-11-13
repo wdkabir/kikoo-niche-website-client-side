@@ -15,7 +15,7 @@ const Registation = () => {
     const History = useHistory();
     const Location = useLocation();
     const Redirect = Location?.state?.from || "/";
-    const { signinGoogle, setError, setUserName, registerNewUser, handleNameChange, handleEmailChange, handlePasswordChange, handleImageChange, setIsLoading } = useAuth();
+    const { signinGoogle, setError, setUserName, registerNewUser, handleNameChange, handleEmailChange, handlePasswordChange, handleImageChange, setIsLoading, saveUser } = useAuth();
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -34,6 +34,7 @@ const Registation = () => {
     const handleGoogleReg = () => {
         signinGoogle()
             .then(result => {
+                saveUser(result.user.email, result.user.displayName, 'PUT');
                 Swal.fire("Good job!",
                     "Log In SuccessFull!",
                     "success"

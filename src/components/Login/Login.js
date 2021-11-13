@@ -16,7 +16,7 @@ const Login = () => {
     const signInIcon = <FontAwesomeIcon icon={faSignInAlt} />
     const history = useHistory();
     const location = useLocation();
-    const { processLogin, handleEmailChange, handlePasswordChange } = UseFirebase();
+    const { processLogin, handleEmailChange, handlePasswordChange, saveUser } = UseFirebase();
     
     const Redirect = location?.state?.from || "/dashboard";
     const { signinGoogle, setIsLoading } = useAuth();
@@ -44,6 +44,7 @@ const Login = () => {
     const handleGoogleLogin = () => {
         signinGoogle()
             .then(result => {
+                saveUser(result.user.email, result.user.displayName, 'PUT');
                 Swal.fire("Good job!",
                     "Log In SuccessFull!",
                     "success"

@@ -35,26 +35,26 @@ const ManageOrders = () => {
         }
     }
 
-    // const handleUpdate = (id) => {
-    //     const url = `https://howling-monster-36925.herokuapp.com/placeorders/${id}`;
-    //     fetch(url, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(manageOrder)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.modifiedCount > 0) {
+    const handleUpdate = (id) => {
+        const url = `http://localhost:5000/placeorder/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(manageOrder)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
             
-    //                 Swal.fire("WoW!",
-    //                     "Status Update SuccessFull!",
-    //                     "success"
-    //                 )
-    //             }
-    //         })
-    // }
+                    Swal.fire("WoW!",
+                        "Status Update SuccessFull!",
+                        "success"
+                    )
+                }
+            })
+    }
     return (
         <>
         <div className="container manage-orders">
@@ -63,7 +63,7 @@ const ManageOrders = () => {
         <Container className="py-5">
             <Row xs={12} md={12} className="g-4 mx-auto">
                             <Col>
-                            <Table striped bordered hover className="mx-0 my-0">
+                            <Table striped bordered hover responsive className="mx-0 my-0">
                                 <thead>
                                     <tr>
                                     <th>Image</th>
@@ -81,8 +81,8 @@ const ManageOrders = () => {
                                     <td><Image style= {{height: '50px', width: '80px'}} src={myorder?.orderplace?.img} fluid /></td>
                                     <td>{myorder?.orderplace?.title}</td>
                                     <td>{displayName}</td>
-                                    <td>@mdo</td>
-                                    <td><Button onClick={()=>handleDelete(myorder._id)} variant="outline-danger">Cancel Order</Button></td>
+                                    <td>{myorder.status}</td>
+                                    <td><Button onClick={()=>handleUpdate(myorder._id)} variant="outline-danger">Approve</Button></td>
                                     </tr>
                                     )
                                     })
