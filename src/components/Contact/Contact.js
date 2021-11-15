@@ -5,6 +5,7 @@ import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
 
 const Contact = () => {
+    //Contact Section
     return (
         <>
         <section className="contact-header">

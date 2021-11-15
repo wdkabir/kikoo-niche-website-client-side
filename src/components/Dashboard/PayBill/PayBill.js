@@ -2,6 +2,7 @@ import React from 'react';
 import './PayBill.css';
 
 const PayBill = () => {
+    //PayBill Section
     return (
         <>
         <section>

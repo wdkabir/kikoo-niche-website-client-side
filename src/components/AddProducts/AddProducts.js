@@ -5,6 +5,7 @@ import { useHistory } from 'react-router';
 import './AddProducts.css';
 
 const AddProducts = () => {
+    //AddProducts section
     const history = useHistory();
     const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) =>{

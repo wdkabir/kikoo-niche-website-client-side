@@ -6,6 +6,7 @@ import Footer from '../Shared/Footer/Footer';
 import './About.css';
 
 const About = () => {
+    //About Section
     return (
         <>
         <section className="about">

@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 import MakeAdmin from '../../MakeAdmin/MakeAdmin';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import PayBill from '../PayBill/PayBill';
-// import Review from '../Review/Review';
+import Review from '../Review/Review';
 
 const Dashboard = () => {
     const profileIcon = <FontAwesomeIcon icon={faUserAlt} />
@@ -32,6 +32,7 @@ const Dashboard = () => {
     const location = useLocation();
     const redirect = location?.state?.from || "/";
     const handleLogout = () => {
+        //handle dashboard part
         logOut()
             .then((result) => {
                 setUser({})
@@ -79,6 +80,7 @@ const Dashboard = () => {
                                         <Nav.Link as={NavLink} to={`${url}`} activeStyle={
                                             activeMenu
                                         } className="fs-6 fw-bold py-3">{profileIcon} Profile</Nav.Link>
+                                        {/* Admin not showing this menu */}
                                         
                                         {
                                             !admin && (
@@ -89,12 +91,13 @@ const Dashboard = () => {
                                                 <Nav.Link as={NavLink} to={`${url}/paybill`} activeStyle={
                                                     activeMenu
                                                 } className="fs-6 fw-bold py-3">{myOrdersIcon} Pay Bill</Nav.Link>
-                                                {/* <Nav.Link as={NavLink} to={`${url}/reviews`} activeStyle={
+                                                <Nav.Link as={NavLink} to={`${url}/reviews`} activeStyle={
                                                     activeMenu
-                                                } className="fs-6 fw-bold py-3">{myOrdersIcon} Reviews</Nav.Link> */}
+                                                } className="fs-6 fw-bold py-3">{myOrdersIcon} Reviews</Nav.Link>
                                                 </>
                                             )
                                         }
+                                        {/* Users Showing Part */}
                                         {
                                             admin && (
                                                <>
@@ -124,6 +127,7 @@ const Dashboard = () => {
                             </Container>
                         </Navbar>
                     </div>
+                    {/* Nesting Routing */}
                     <div className="col-md-9 py-0 px-0">
                         <Switch>
                             <Route exact path={path}>
@@ -135,9 +139,9 @@ const Dashboard = () => {
                             <Route path={`${path}/paybill`}>
                                    <PayBill></PayBill> 
                             </Route>
-                            {/* <Route path={`${path}/reviews`}>
+                            <Route path={`${path}/reviews`}>
                                    <Review></Review>
-                            </Route> */}
+                            </Route>
                             <AdminRoute path={`${path}/manageorders`}>
                                    <ManageOrders></ManageOrders> 
                             </AdminRoute>

@@ -3,6 +3,7 @@ import { Image } from 'react-bootstrap';
 import './BikeService.css';
 
 const BikeService = () => {
+    //BikeService Part
     return (
         <>
         <section className="bikeservice">

@@ -11,6 +11,7 @@ import History from './History/History';
 import Footer from '../Shared/Footer/Footer';
 import Product from '../Bikes/Product/Product';
 import useProducts from '../../Hooks/useProducts';
+import Reviews from './Reviews/Reviews';
 
 const Home = () => {
     const [products] = useProducts();
@@ -34,6 +35,7 @@ const Home = () => {
             </div>
 
         </section>
+        {/* header-subscribe Part */}
         <section className="header-subscribe">
             <div className="container">
                 <div className="row">
@@ -75,8 +77,8 @@ const Home = () => {
             </div>
         </section>
         <BikeService></BikeService>
+        <Reviews></Reviews>
         <Footer></Footer>
-        
         </>
     );
 };

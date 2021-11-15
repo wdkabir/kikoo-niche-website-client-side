@@ -3,6 +3,7 @@ import { Image, Nav } from 'react-bootstrap';
 import './History.css';
 
 const History = () => {
+    //History Part
     return (
         <>
         <section className="my-5">

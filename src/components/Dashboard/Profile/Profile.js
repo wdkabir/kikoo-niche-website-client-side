@@ -6,6 +6,7 @@ import useAuth from '../../../Hooks/useAuth';
 import './Profile.css';
 
 const Profile = () => {
+    //Profile Part
     const { user, logOut, setUser, setIsLoading } = useAuth();
     const { displayName, email, photoURL,  } = user;
     const history = useHistory();
