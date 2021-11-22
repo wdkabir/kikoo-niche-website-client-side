@@ -70,7 +70,7 @@ const ManageOrders = () => {
                                     <th>Product Name</th>
                                     <th>Name</th>
                                     <th>Order Status</th>
-                                    <th>Cancel Order</th>
+                                    <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,7 +82,7 @@ const ManageOrders = () => {
                                     <td>{myorder?.orderplace?.title}</td>
                                     <td>{displayName}</td>
                                     <td>{myorder.status}</td>
-                                    <td><Button onClick={()=>handleUpdate(myorder._id)} variant="outline-danger">Approve</Button></td>
+                                    <td><Button onClick={()=>handleUpdate(myorder._id)} variant="outline-success">Approve</Button></td>
                                     </tr>
                                     )
                                     })
