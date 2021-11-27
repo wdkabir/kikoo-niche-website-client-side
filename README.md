@@ -14,3 +14,9 @@
 - Context api was used to get data easily from all the route
 - Used Private Route, Google-SignIn for Authentication
 - I've created my own backend as well as some api's to connect my client side to the database
+- Users can see the products which will be loaded from MongoDB.
+- Users can order any products and their data will be saved on the database.
+- Users need to create accounts via email, password, and google then can see their
+dashboard, individual orders in my order's section, and cancel any order too.
+- Admin can see all the orders of all users and can cancel or approve any order at any time.
+- Admin can add new products and admin can change user's role.
